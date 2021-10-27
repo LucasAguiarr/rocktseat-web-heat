@@ -28,7 +28,7 @@ export const MessageList = () => {
     setInterval(() => {
       if (messagesQueue.length > 0) {
         setMessages((prevState) =>
-          [messagesQueue[0], prevState[0], prevState[1]].filter(Boolean)
+          [messagesQueue[0], ...prevState].filter(Boolean)
         );
 
         messagesQueue.shift();
@@ -42,7 +42,7 @@ export const MessageList = () => {
 
   const getMessages = async () => {
     try {
-      const res = await api.get<IMessage[]>("/messages/last3");
+      const res = await api.get<IMessage[]>("/messages/last/3");
       setMessages(res.data);
     } catch (error) {
       console.log({ errorCode: error });

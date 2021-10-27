@@ -32,7 +32,7 @@ export const AuthContext = createContext({} as IAuthContextData);
 
 export const AuthProvider = ({ children }: IAuthProvider) => {
   const [user, setUser] = useState<IUser | null>(null);
-  const signInUrl = `https://github.com/login/oauth/authorize?scope=user&client_id=4e89b1629cf6fc0fef98`;
+  const signInUrl = `https://github.com/login/oauth/authorize?scope=user&client_id=2d42a6604ea74c1ae1d7`;
 
   useEffect(() => {
     const url = window.location.href;
